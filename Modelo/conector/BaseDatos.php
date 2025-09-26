@@ -51,17 +51,10 @@ class BaseDatos extends PDO
     }
 
 
-
-
-
-
-
     public function getConec()
     {
         return $this->conec;
     }
-
-
 
 
     public function setDebug($debug)
@@ -89,11 +82,17 @@ class BaseDatos extends PDO
      */
     public function getError()
     {
+        $mensaje = "";
+
         if (is_array($this->error)) {
-            return "\n" . implode("::", $this->error);
+            $mensaje = "\n" . implode("::", $this->error);
+        } else {
+            $mensaje = "\n" . $this->error;
         }
-        return "\n" . $this->error;
+
+        return $mensaje;
     }
+
 
 
     /**

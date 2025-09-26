@@ -13,7 +13,6 @@ $autos = [];
 
 if (!empty($datos['dni'])) {
     $personaArr = $objAbmPersona->buscar(['nroDni' => $datos['dni']]); 
-    // fijate bien cómo se llama el campo en tu modelo/clase Persona
     if (!empty($personaArr)) {
         $persona = $personaArr[0];
         $autos = $objAbmAuto->buscar(['DniDuenio' => $persona->getNroDni()]);
